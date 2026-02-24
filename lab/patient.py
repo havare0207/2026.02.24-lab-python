@@ -8,6 +8,63 @@ class Patient:
 
     #Betyr len i denne sammenhengen lengh? Og hva betyr strip (hvorfor brukes dette?)
 
+    #Betyr len her "length"?
+
+    '''
+    Ja ✅
+
+    len(patient_id)
+
+    betyr:
+
+    Hvor mange tegn er det i teksten?
+
+    Eksempel:
+
+    len("P01")   # 3
+    len("A")     # 1
+
+    Så når du skriver:
+
+    if len(patient_id) < 3:
+
+    betyr det:
+
+    👉 ID må ha minst 3 tegn.
+    '''
+
+
+    #Hva gjør strip() og hvorfor brukes det?
+
+    '''
+    name.strip()
+
+    strip() fjerner mellomrom før og etter tekst.
+
+    Eksempel:
+
+    "   Ole   ".strip()
+
+    blir:
+
+    "Ole"
+
+    Hvorfor er dette viktig?
+
+    Hvis en bruker skriver:
+
+    Patient("P001", "   O   ")
+
+    Uten strip() ville lengden blitt 5 (på grunn av mellomrom),
+    men egentlig er navnet bare "O".
+
+    Så:
+
+    len(name.strip()) < 2
+
+    sikrer at det faktisk er minst 2 ekte bokstaver.
+
+    '''
 
     def __init__(self, patient_id: str, name: str):
         if not patient_id or len(patient_id) < 3:
@@ -20,7 +77,22 @@ class Patient:
         self.temperatures: List[float] = []
 
 
-    #Hvorfor -> None?
+    # Hva betyr -> None?
+
+    '''
+    Dette er en type hint.
+
+    Det betyr:
+
+    Denne funksjonen returnerer ingenting.
+
+    Altså det samme som:
+
+    return None
+
+    Men vi skriver det for tydelighet og type-sjekking.
+
+    '''
 
 
     def add_temperature(self, temp_celsius: float)-> None:
@@ -45,16 +117,34 @@ class Patient:
             raise PatientError(self.patient_id, "No temperature readings")
 
 
-        #Betyr len her lengh?
+        #Betyr len her også length?
+        '''
+        Ja 👇
 
-        
+        len(self.temperatures)
+
+        Betyr:
+
+        Hvor mange temperaturmålinger finnes i listen?
+        ''' 
+
+
         avg=sum(self.temperatures) / len(self.temperatures)
         
 
-        #Return round betyr gjennomsnitt, og en tar det av avg, men hvorfor avg, 1?
+        #Hva betyr round(avg, 1)?
 
-
+        '''
         return round(avg, 1)
+
+        round(tall, 1) betyr:
+
+        Rund av til 1 desimal.
+
+        '''
+        
+        return round(avg, 1)
+
         
 
     def has_fever(self)->bool:
