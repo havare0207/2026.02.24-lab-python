@@ -25,14 +25,19 @@ class TestPatient:
     def test_invalid_patient_id(self):
 
         #Hvordan fungerer pytest i denne situasjonen?
+        
         with pytest.raises(PatientError, match="ID must"):
+
             #Hvorfor A og Test, hva gjør en egentlig her?
+
             Patient("A", "Test")
 
 
     def test_temperatures_too_high(self):
         patient = Patient("P001", "Ole")
+
         #Hva tester en her, og hvordan fungerer pytest i denne situasjonen?
+
         with pytest.raises(TemperatureError, match="43.0"):
             patient.add_temperature(45.0)
 
@@ -42,6 +47,7 @@ class TestPatient:
         patient.add_temperature(37.0)
         patient.add_temperature(38.0)
         patient.add_temperature(37.5)
+
         #Skal assert her sjekke om gjennomsnittet av temperaturene er på 37.5, og hva betyr egentlig assert i python i testing av programmer?
         
         '''I testing betyr:

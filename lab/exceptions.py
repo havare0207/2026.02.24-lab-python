@@ -26,6 +26,7 @@ class PatientError(Exception):
 '''Both should inherit from Exception and call super().__init__() with
 formatted message'''
 
+
 #Hvorfor definerer vi Exception classen på denne måten, bare som det en tar inn i de andre classene?
 # Og hvorfor kaller en på superklassen (Exception) for å skrive ut errormeldingene, og hvordan fungerer dette?
 

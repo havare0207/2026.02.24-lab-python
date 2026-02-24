@@ -7,6 +7,8 @@ class Patient:
     
 
     #Betyr len i denne sammenhengen lengh? Og hva betyr strip (hvorfor brukes dette?)
+
+
     def __init__(self, patient_id: str, name: str):
         if not patient_id or len(patient_id) < 3:
             raise PatientError(patient_id, "ID must be 3+ characters")
@@ -19,6 +21,8 @@ class Patient:
 
 
     #Hvorfor -> None?
+
+
     def add_temperature(self, temp_celsius: float)-> None:
         """Add temperature reading. Raise TemperatureError if invalid."""
         if not isinstance(temp_celsius, (int, float)):
@@ -42,10 +46,14 @@ class Patient:
 
 
         #Betyr len her lengh?
+
+        
         avg=sum(self.temperatures) / len(self.temperatures)
         
 
         #Return round betyr gjennomsnitt, og en tar det av avg, men hvorfor avg, 1?
+
+
         return round(avg, 1)
         
 
